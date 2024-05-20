@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
+body {
+
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    display: flex;
+    background-color: #bb340bcc;
+    overflow: hidden;
+  }
+  
+  .jewellery-box {
+    position: relative;
+    filter: drop-shadow(0 0 30px rgba(0,0,0,0.4));
+  }
+ 
+  .diamond-ring {
+    position: relative;
+  }
+  
+  
+  input#open {
+    display: none;
+  }
+
+  
+  .diamond {
+    position: relative;
+    border-style: solid;
+    border-color: transparent transparent #27c3f3 transparent;
+    border-width: 0 5px 5px 5px;
+    height: 0;
+    width: 15px; 
+    z-index:1;
+  }
+  .diamond:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: -5px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: #27c3f3 transparent transparent transparent;
+    border-width: 15px 12.5px 0 12.5px;
+  }
+  
+  .diamond:after {
+    content:"";
+    position: absolute;
+    border-style: solid;
+    border-color: #7fd4f9 transparent transparent transparent;
+    border-width: 15px 7px 7px;
+    width:0;
+    height:0;
+    left:0.5px;
+    top:5px;
+  }
+  
+  .band {
+    position: absolute;
+    width:45px;
+    height:45px;
+    border: 5px solid #fed53f;
+    border-radius: 50%;
+    top:15px;
+    left:-15px;
+    z-index:1;
+  }
+  
+  .band:before, .band:after {
+    content:"+";
+    position: absolute;
+    color:rgba(255,255,255,.5);
+  }
+  
+  .band:before {
+    left:5px;
+    top:-15px;
+    font-size:7px;
+    text-shadow: 20px -12px;
+    animation: shine .5s linear infinite;
+  }
+  
+  .band:after {
+    left:32px;
+    top:-12px;
+    font-size:9px;
+    text-shadow: -19px -18px;
+    animation: shine .5s linear infinite .2s;
+  }
+  
+  @keyframes shine {
+    from {opacity:1;}
+    to {opacity:0;}
+  }
+
+  
+  .inner {
+    position:absolute;
+    background-color: #cf7b4a;
+    width:70px;
+    height:15px;
+    z-index:3;
+    left:-20px;
+    top:55px;
+    border-radius:20px 20px 0 0;
+  }
+  
+  .open {
+    position: absolute;
+    z-index:5;
+    background-color: #81171b;
+    width: 170px;
+    height:40px;
+    border-radius: 30px 30px 0 0;
+    left:-70px;
+    top:-10px;
+    transition: .1s;
+    cursor: pointer;
+  }
+  
+  .bottom {
+    position: absolute;
+    z-index:5;
+    background-color: #81171b;
+    width:170px;
+    height:40px;
+    box-shadow: 0 -10px #540804;
+    border-radius: 0 0 15px 15px;
+    top:40px;
+    left:-70px;
+    transition: .1s;
+  }
+  
+  .bottom:before {
+    content:"";
+    position: absolute;
+    border-radius:50%;
+    width:10px;
+    height:10px;
+    background-color: #ad2e24;
+    top:13px;
+    left:13px;
+    box-shadow: 15px 0 #ad2e24, 30px 0 #ad2e24, 45px 0 #ad2e24, 60px 0 #ad2e24, 75px 0 #ad2e24, 90px 0 #ad2e24, 105px 0 #ad2e24, 120px 0 #ad2e24, 135px 0 #ad2e24;
+  }
+  
+  .inner-top {
+    position: absolute;
+    width:150px;
+    height:0;
+    border-style: solid;
+    border-width: 0 10px 50px 10px;
+    border-color: transparent transparent #912820 transparent;
+    transition: .1s;
+    transform-origin: top;
+    left:-70px;
+    top:40px;
+    transform: rotateX(85deg);
+  }
+  
+  .inner-top:before {
+    content:"";
+    position: absolute;
+    width:130px;
+    height:0;
+    border-style: solid;
+    border-width: 0 10px 50px 10px;
+    border-color: transparent transparent #ad2e24 transparent;
+    transition: .1s;
+    transform-origin: top;
+    left:0;
+    top:0;
+  }
+  
+  .inner-bottom {
+    position: absolute;
+    width:150px;
+    height:0;
+    border-style: solid;
+    border-width: 0 10px 60px 10px;
+    border-color: transparent transparent #732019 transparent;
+    transition: .1s;
+    transform-origin: top;
+    left:-70px;
+    top:40px;
+    transform: rotateX(85deg);
+  }
+  
+  .inner-bottom:before {
+    content:"";
+    position: absolute;
+    width:130px;
+    height:0;
+    border-style: solid;
+    border-width: 0 10px 60px 10px;
+    border-color: transparent transparent #cf7b4a transparent;
+    transition: .1s;
+    transform-origin: top;
+    left:0;
+    top:0;
+  }
+  
+  .details {
+    position: absolute;
+    width:132px;
+    background-color: #cf7b4a;
+    border-radius:20px 20px 0 0;
+    height:10px;
+    left:-51px;
+    top:35px;
+  }
+  
+  
+  #open:checked + .open {
+    transform: translateY(-40px);
+  }
+  
+  #open:checked ~  .bottom {
+    transform: translateY(45px);
+  }
+  
+  #open:checked ~  .inner-top {
+    transform: rotateX(180deg);
+  }
+  
+  #open:checked ~  .inner-bottom {
+    transform: rotateX(-40deg);
+  }
+  
+  
+  .text {
+    position: absolute;
+    color: white;
+    font-family: 'Mochiy Pop P One', sans-serif;
+    font-size: 30px;
+    transition: .3s;
+    width:300px;
+    text-align: center;
+    top:-165px;
+    left:-130px;
+    opacity:0;
+  }
+  
+  #open:checked ~  .text {
+    opacity:1;
+  }
